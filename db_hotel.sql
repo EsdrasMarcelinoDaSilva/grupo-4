@@ -79,3 +79,23 @@ INSERT INTO reserva_quarto (reserva_id, quarto_id, data_checkin, data_checkout, 
 (1, 8, '2025-02-17', '2025-02-19', 2)
 
 select * from reserva_quarto
+
+SELECT 
+    h.nome AS hospede_nome,
+    r.id AS reserva_id,
+    rq.data_checkin,
+    rq.data_checkout,
+    rq.quantidade_diarias,
+    q.numero AS quarto_numero,
+    q.tipo AS quarto_tipo,
+    q.preco_diaria
+FROM 
+    Reserva r
+JOIN 
+    Hospede h ON r.hospede_id = h.id
+JOIN 
+    Reserva_Quarto rq ON r.id = rq.reserva_id
+JOIN 
+    Quarto q ON rq.quarto_id = q.id
+WHERE 
+    h.id = 4;  
