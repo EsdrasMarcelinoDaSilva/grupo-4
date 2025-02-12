@@ -14,3 +14,7 @@ insert into hospede (nome, email) values
 ('Maria Oliveira', 'mariaoliveira@gmail.com'),
 ('Carla Martins', 'carlamartins@gmail.com'),
 ('Roberta Campos', 'robertacampos@gmail.com')
+
+select * from hospede
+
+select nome, id from hospede where nome like '%Roberto%';
