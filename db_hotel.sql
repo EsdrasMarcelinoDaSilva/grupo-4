@@ -99,3 +99,21 @@ JOIN
     Quarto q ON rq.quarto_id = q.id
 WHERE 
     h.id = 4;  
+
+SELECT 
+    rq.data_checkin,
+    rq.data_checkout,
+    rq.quantidade_diarias,
+    q.numero AS quarto_numero,
+    q.tipo AS quarto_tipo,
+    q.preco_diaria,
+    h.nome AS hospede_nome,
+    r.id AS reserva_id
+FROM 
+    Reserva_Quarto rq 
+JOIN 
+    Quarto q ON rq.quarto_id = q.id  
+JOIN 
+    Reserva r ON rq.reserva_id = r.id  
+JOIN 
+    Hospede h ON r.hospede_id = h.id;  
