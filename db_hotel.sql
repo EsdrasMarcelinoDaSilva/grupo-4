@@ -35,7 +35,7 @@ INSERT INTO reserva (hospede_id, data_reserva) VALUES
 (6, '2025-02-12 15:30:00'),
 (7, '2025-02-13 16:30:00'),
 (8, '2025-02-14 17:30:00')
-(9, '2025-02-30' '20:30:00')
+(9, '2025-02-30' '20:30:00') -- para inserir log na tabela log_reservas
 
 select * from reserva
 
