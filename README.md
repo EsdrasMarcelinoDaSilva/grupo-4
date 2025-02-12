@@ -6,6 +6,10 @@ Este projeto tem como objetivo desenvolver um sistema de gerenciamento de reserv
 
 ## Estrutura do Banco de Dados
 
+### Diagrama do Banco de Dados
+
+![Diagrama do Banco de Dados](/diagram/chart.png)
+
 ### Tabela `hospede`
 
 Armazena as informações dos hóspedes do hotel, como nome e email.
