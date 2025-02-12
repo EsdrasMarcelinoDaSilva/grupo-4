@@ -67,3 +67,13 @@ CREATE TABLE reserva_quarto (
     FOREIGN KEY (quarto_id) REFERENCES quarto(id),
     CHECK (data_checkout > data_checkin) 
 );
+
+INSERT INTO reserva_quarto (reserva_id, quarto_id, data_checkin, data_checkout, quantidade_diarias) VALUES
+(1, 2, '2025-02-15', '2025-02-18', 3),
+(1, 5, '2025-02-16', '2025-02-20', 4),
+(2, 3, '2025-02-10', '2025-02-12', 2),
+(2, 6, '2025-02-11', '2025-02-13', 2),
+(3, 1, '2025-02-20', '2025-02-22', 2),
+(3, 4, '2025-02-21', '2025-02-23', 2),
+(3, 7, '2025-02-22', '2025-02-25', 3),
+(1, 8, '2025-02-17', '2025-02-19', 2)
