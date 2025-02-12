@@ -151,3 +151,11 @@ CREATE TRIGGER trigger_log_reserva
 AFTER INSERT ON reserva_quarto
 FOR EACH ROW
 EXECUTE FUNCTION log_nova_reserva();
+
+
+----para teste de quando inserir dados na tabela log_reservas trigger é acionado----
+
+INSERT INTO reserva_quarto (reserva_id, quarto_id, data_checkin, data_checkout, quantidade_diarias)
+VALUES (4, 4, '2025-03-01', '2025-03-05', 2);
+-------------------------------------------------------------------------------------
+select * from log_reservas
