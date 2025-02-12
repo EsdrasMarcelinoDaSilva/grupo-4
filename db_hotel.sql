@@ -77,3 +77,5 @@ INSERT INTO reserva_quarto (reserva_id, quarto_id, data_checkin, data_checkout, 
 (3, 4, '2025-02-21', '2025-02-23', 2),
 (3, 7, '2025-02-22', '2025-02-25', 3),
 (1, 8, '2025-02-17', '2025-02-19', 2)
+
+select * from reserva_quarto
