@@ -36,3 +36,22 @@ INSERT INTO reserva (hospede_id, data_reserva) VALUES
 (9, '2025-02-30' '20:30:00')
 
 select * from reserva
+
+CREATE TABLE quarto (
+    id SERIAL PRIMARY KEY,
+    numero VARCHAR(10) UNIQUE NOT NULL,
+    tipo VARCHAR(50) NOT NULL,
+    preco_diaria DECIMAL(10,2) NOT NULL
+);
+
+INSERT INTO quarto (numero, tipo, preco_diaria) VALUES
+('101', 'Solteiro', 120.50),
+('102', 'Duplo', 200.00),
+('103', 'Casal', 250.75),
+('104', 'Solteiro', 110.00),
+('105', 'Duplo', 180.00),
+('106', 'Casal', 260.50),
+('107', 'Solteiro', 130.00),
+('108', 'Duplo', 220.00)
+
+select * from quarto
