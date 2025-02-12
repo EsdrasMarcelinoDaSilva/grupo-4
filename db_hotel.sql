@@ -55,3 +55,15 @@ INSERT INTO quarto (numero, tipo, preco_diaria) VALUES
 ('108', 'Duplo', 220.00)
 
 select * from quarto
+
+CREATE TABLE reserva_quarto (
+    reserva_id INT,
+    quarto_id INT,
+    data_checkin DATE NOT NULL,
+    data_checkout DATE NOT NULL,
+    quantidade_diarias INT NOT NULL,
+    PRIMARY KEY (reserva_id, quarto_id),
+    FOREIGN KEY (reserva_id) REFERENCES reserva(id),
+    FOREIGN KEY (quarto_id) REFERENCES quarto(id),
+    CHECK (data_checkout > data_checkin) 
+);
