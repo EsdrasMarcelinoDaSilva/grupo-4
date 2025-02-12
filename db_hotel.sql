@@ -117,3 +117,37 @@ JOIN
     Reserva r ON rq.reserva_id = r.id  
 JOIN 
     Hospede h ON r.hospede_id = h.id;  
+
+
+CREATE TABLE log_reservas (
+    id SERIAL PRIMARY KEY,
+    reserva_id INT,
+    quarto_id INT,
+    data_checkin DATE,
+    data_checkout DATE,
+    data_operacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    mensagem TEXT
+);
+
+
+CREATE OR REPLACE FUNCTION log_nova_reserva()
+RETURNS TRIGGER AS $$
+BEGIN
+    INSERT INTO log_reservas (reserva_id, quarto_id, data_checkin, data_checkout, mensagem)
+    VALUES (
+        NEW.reserva_id,
+        NEW.quarto_id,
+        NEW.data_checkin,
+        NEW.data_checkout,
+        'Reserva inserida para o quarto ' || NEW.quarto_id || ' de ' || NEW.data_checkin || ' até ' || NEW.data_checkout
+    );
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER trigger_log_reserva
+AFTER INSERT ON reserva_quarto
+FOR EACH ROW
+EXECUTE FUNCTION log_nova_reserva();
